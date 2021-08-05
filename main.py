@@ -16,6 +16,7 @@ from config import headers
 from crawler import prepareCrawl
 from merge import mergeMp4
 from delete import deleteM3u8, deleteMp4
+from cover import downloadCover
 
 # In[2]:
 
@@ -45,6 +46,10 @@ folderPath = os.path.join(os.getcwd(), dirName)
 # m3u8url = m3u8url[1:][:-1]
 
 htmlfile = requests.get(url)
+
+# 下载封面
+downloadCover(htmlfile,folderPath)
+
 result = re.search("https://.+m3u8", htmlfile.text)
 m3u8url = result[0]
 

@@ -1,11 +1,11 @@
 import os
 
 def deleteMp4(folderPath):
-    files = os.listdir(folderPath)
     originFile = folderPath.split(os.path.sep)[-1] + '.mp4'
+    # 找出所有不是originFile的mp4文件(保留封面图片)
+    files = [file for file in os.listdir(folderPath) if file.endswith('.mp4') and file != originFile]
     for file in files:
-        if file != originFile:
-            os.remove(os.path.join(folderPath, file))
+        os.remove(os.path.join(folderPath, file))
 
 
 def deleteM3u8(folderPath):

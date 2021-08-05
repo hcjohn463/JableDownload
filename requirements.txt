@@ -2,3 +2,4 @@ requests==2.25.1
 beautifulsoup4==4.9.3
 m3u8==0.8.0
 pycryptodome==3.4.3
+lxml==4.6.3
